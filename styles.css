@@ -1,0 +1,166 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #151515; /* Dark background for dark mode */
+    color: #ffffff; /* Light text for dark mode */
+    margin: 0;
+    padding: 0;
+}
+.artwork::before{
+    content: "Welcome to our new Event colors of the city. The new Art will be available on display from 21st October 2023"; /* Text content */
+    position: relative;
+    color: rgba(255, 255, 255, 0.7); /* Translucent white text color */
+    background-color: rgba(0, 0, 0, 0.5); /* Translucent black background */
+    padding: 10px;
+    border-radius: 5px;
+    display: none; /* Initially hidden */
+}
+.artwork:hover::before{
+    display: block;
+}
+.carousel::before {
+    content: "Welcome to our new Event colors of the city. The new Art will be available on display from 21st October 2023"; /* Text content */
+    position: absolute;
+    top: 50%; /* Move the text down by 50% of the parent's height */
+    left: 50%; /* Move the text right by 50% of the parent's width */
+    transform: translate(-50%, -50%); /* Center the text both horizontally and vertically */
+    color: rgba(255, 255, 255, 0.7); /* Translucent white text color */
+    background-color: rgba(0, 0, 0, 0.5); /* Translucent black background */
+    padding: 20px;
+    border-radius: 5px;
+    display: none; /* Initially hidden */
+}
+
+/* Show the translucent text when carousel is hovered */
+.carousel:hover::before {
+    display: block;
+}
+#main{
+    position: absolute;
+    top: 35%; /* Move the button down by 50% of the parent's height */
+    left: 50%; 
+    transform: translate(-50%, -50%); /* Center the button both horizontally and vertically */
+    padding: 10px 20px;
+
+}
+/* Style the button */
+#button {
+    position: absolute;
+    top: 40%; /* Move the button down by 50% of the parent's height */
+    left: 50%; /* Move the button right by 50% of the parent's width */
+    transform: translate(-50%, -50%); /* Center the button both horizontally and vertically */
+    background-color: rgb(210, 91, 0);
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Adjust the button appearance on hover */
+.carousel:hover #button {
+    background-color: lightblue;
+}
+.carousel h3{
+    font-size: 30px;
+    
+}
+/* Style the header in dark mode */
+.dark-header {
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Style the gallery title */
+.gallery-title {
+    font-size: 36px;
+    margin: 0;
+    color: #fbf700; /* Light text for dark mode */
+}
+
+/* Style the carousel */
+.carousel {
+    align-items: center;
+    overflow-x: auto; /* Enable horizontal scrolling for swiping */
+    scroll-snap-type: x mandatory; /* Enable snap scrolling */
+}
+
+  .image-container {
+    position: relative;
+  }
+
+/* Style carousel images */
+.carousel img {
+    width: 100%;
+    height: 50vh; /* Set the height to exactly half of the viewport height */
+    object-fit: cover;
+    align-self: center;
+    justify-content: center;
+    margin: 10px 50px; /* Center the image horizontally */
+}
+.carousel div{
+    display: flex;
+    align-items: center;
+}
+
+/* Style the gallery container */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+/* Style individual artworks */
+.artwork {
+    background-color: #00000055;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    width: 300px;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    border-radius: 20px;
+}
+
+/* Style artwork images */
+.artwork img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Style artwork titles */
+.artwork h2 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+/* Style artist names */
+.artwork p {
+    font-style: italic;
+}
+
+/* Show text when hovering over artwork */
+.artwork::before {
+    content: "Welcome to our new Event colors of the city. The new Art will be available on display from 21st October 2023"; /* Text content */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none; /* Initially hidden */
+    background-color: rgba(0, 0, 0, 0.5); /* Translucent black background */
+    color: rgba(255, 255, 255, 0.7); /* Translucent white text color */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.artwork:hover::before {
+    display: block;
+}

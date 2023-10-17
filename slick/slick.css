@@ -1,0 +1,11 @@
+/* Style the carousel container */
+.carousel {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Style carousel images */
+.carousel img {
+    max-width: 100%;
+    height: auto;
+}
