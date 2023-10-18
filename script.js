@@ -48,6 +48,89 @@ document.getElementById('search-button').addEventListener('click', function () {
         // Redirect to a new page to display artist info
         window.location.href = `artist.html?name=${encodeURIComponent(artist.name)}`;
     } else {
-        document.getElementById('artist-info').innerHTML = "Artist not found.";
+        document.getElementById('artist-info').innerHTML = "Artist not found. Try \"Artist 1\"";
+    }
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const artworkItems = document.querySelectorAll('.artwork img');
+
+    artworkItems.forEach((item) => {
+        item.addEventListener('click', function () {
+            const index = item.getAttribute('data-index');
+            // Redirect to a new page for viewing and rating the image
+            window.location.href = `artwork.html?index=${index}`;
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const index = urlParams.get('index');
+
+    const artworkData = {
+        1: {
+            name: "Artwork 1",
+            imageUrl: "https://th.bing.com/th/id/OIP.2C4ap62_UtK26zHglUvHiwHaGK?w=215&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            description: "Abstract artwork with vibrant colors and unique patterns. Created by a local artist.",
+        },
+        2: {
+            name: "Artwork 2",
+            imageUrl: "https://th.bing.com/th/id/OIP.uBf29i5DQvvOyjxmHNZDKgHaFX?w=244&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            description: "A serene landscape painting featuring a tranquil lake surrounded by mountains.",
+        },
+        3: {
+            name: "Artwork 3",
+            imageUrl: "https://th.bing.com/th/id/OIP.uBf29i5dQvvOyjxmHNZDKgHaFX?w=244&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            description: "A modern sculpture that combines various materials to create a unique 3D art piece.",
+        },
+        4: {
+            name: "Artwork 4",
+            imageUrl: "https://th.bing.com/th/id/OIP.uBf29i5DQvvOyjxmHNZDKgHaFX?w=244&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            description: "A still life painting showcasing a beautiful arrangement of flowers in a vase.",
+        },
+        5: {
+            name: "Artwork 5",
+            imageUrl: "https://th.bing.com/th/id/OIP.uBf29i5DQvvOyjxmHNZDKgHaFX?w=244&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            description: "A unique digital art piece that explores the intersection of technology and nature.",
+        },
+        6: {
+            name: "Artwork 6",
+            imageUrl: "https://th.bing.com/th/id/OIP.uBf29i5DQvvOyjxmHNZDKgHaFX?w=244&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            description: "An abstract sculpture with intricate geometric shapes and a metallic finish.",
+        },
+    };
+
+    if (artworkData[index]) {
+        const artwork = artworkData[index];
+
+        document.querySelector('h1').textContent = artwork.name;
+        document.querySelector('img').src = artwork.imageUrl;
+        document.querySelector('p:nth-of-type(2)').textContent = `Artwork Description: ${artwork.description}`;
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const index = urlParams.get('index');
+
+    const artworkData = {
+        1: {
+            name: "Artwork 1",
+            imageUrl: "https://th.bing.com/th/id/OIP.2C4ap62_UtK26zHglUvHiwHaGK?w=215&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            description: "Abstract artwork with vibrant colors and unique patterns. Created by a local artist.",
+        },
+        2: {
+            name: "Artwork 2",
+            imageUrl: "https://th.bing.com/th/id/OIP.uBf29i5DQvvOyjxmHNZDKgHaFX?w=244&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            description: "A serene landscape painting featuring a tranquil lake surrounded by mountains.",
+        },
+        // Add data for other artworks here
+    };
+
+    if (artworkData[index]) {
+        const artwork = artworkData[index];
+
+        document.querySelector('h1').textContent = artwork.name;
+        document.querySelector('#artwork-image').src = artwork.imageUrl;
+        document.querySelector('#artwork-description').textContent = `Artwork Description: ${artwork.description}`;
     }
 });
