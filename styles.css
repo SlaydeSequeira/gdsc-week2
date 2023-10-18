@@ -4,7 +4,73 @@
     padding: 0;
     box-sizing: border-box;
 }
+.img{
+    height: 20px;
+    width:20px
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s, transform 1s;
+}
+#halo-effect-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 500px; /* Adjust the height as needed */
+}
+/* Style for the Contact Info section */
+.footnotes {
+    background-color: #f2f2f2;
+    padding: 20px;
+    height: 200px;
+    background-color: #151515; /* Dark background for dark mode */
+    text-align: center;
+}
 
+.footnotes h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footnotes p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.footnotes a {
+    color: #0073e6;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.social-media-links a:hover {
+    text-decoration: underline;
+}
+
+#halo-effect-container p{
+    margin: 50px;
+    font-size: 24px;
+    background-color: #ffffff17;
+    padding: 50px;
+    border-radius: 30px;
+}
+#halo-effect-container h2{
+    font-size: 40px;
+}
+#halo{
+    display: flex;
+    align-items: center;
+}
+#halo-effect{
+    width: 100vh;
+    height: 100vh;
+    align-self: center;
+    margin: 0,auto;
+    justify-content: center;
+    display: flex;
+}
 /* Style the body */
 body {
     font-family: Arial, sans-serif;
@@ -13,18 +79,30 @@ body {
     margin: 0;
     padding: 0;
 }
-.artwork::before{
-    content: "Welcome to our new Event colors of the city. The new Art will be available on display from 21st October 2023"; /* Text content */
-    position: relative;
-    color: rgba(255, 255, 255, 0.7); /* Translucent white text color */
+.input-fields{
+    display: flex;
+    orientation: portrait;
+    justify-content: center;
+}
+.artwork::before {
+    content: attr(data-title); /* Use the data-title attribute as content */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none; /* Initially hidden */
     background-color: rgba(0, 0, 0, 0.5); /* Translucent black background */
+    color: rgba(255, 255, 255, 0.7); /* Translucent white text color */
     padding: 10px;
     border-radius: 5px;
-    display: none; /* Initially hidden */
+    text-align: center;
 }
-.artwork:hover::before{
+
+.artwork:hover::before {
+    content: attr(data-description); /* Show the data-description attribute on hover */
     display: block;
 }
+
 .carousel::before {
     content: "Welcome to our new Event colors of the city. The new Art will be available on display from 21st October 2023"; /* Text content */
     position: absolute;
@@ -163,4 +241,118 @@ body {
 
 .artwork:hover::before {
     display: block;
+}
+.input__container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.664);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 22px;
+    max-width: 300px;
+    transition: transform 400ms;
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) rotateY(-20deg);
+    perspective: 500px;
+  }
+  
+  .shadow__input {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(30px);
+    border-radius: 20px;
+    background-color: #999cff;
+    background-image: radial-gradient(at 85% 51%, hsla(60,60%,61%,1) 0px, transparent 50%),
+      radial-gradient(at 74% 68%, hsla(235,69%,77%,1) 0px, transparent 50%),
+      radial-gradient(at 64% 79%, hsla(284,72%,73%,1) 0px, transparent 50%),
+      radial-gradient(at 75% 16%, hsla(283,60%,72%,1) 0px, transparent 50%),
+      radial-gradient(at 90% 65%, hsla(153,70%,64%,1) 0px, transparent 50%),
+      radial-gradient(at 91% 83%, hsla(283,74%,69%,1) 0px, transparent 50%),
+      radial-gradient(at 72% 91%, hsla(213,75%,75%,1) 0px, transparent 50%);
+  }
+  
+  .input__button__shadow {
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: transform 400ms, background 400ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 5px;
+  }
+  header{
+    display: flex;
+  }
+  header {
+    display: flex;
+}
+
+/* Apply flex-grow: 1; to all items in the header */
+header > * {
+    flex-grow: 1;
+}
+
+  .input__button__shadow:hover {
+    background: rgba(255, 255, 255, 0.411);
+  }
+  
+  .input__search {
+    width: 100%;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    padding: 8px;
+    position: relative;
+  }
+  .input__container a {
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: transform 400ms, background 400ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 5px;
+    font-size: 30px;
+}
+
+.input__container a:hover {
+    background: rgba(255, 255, 255, 0.411);
+}
+
+
+.artist-info {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 20px;
 }

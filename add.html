@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Artwork</title>
+</head>
+<body>
+    <h1>Add Artwork</h1>
+    <form id="artwork-form" onsubmit="return submitArtwork();">
+        <label for="image-url">Image URL:</label>
+        <input type="text" id="image-url" required>
+        <br>
+        <label for="description">Description:</label>
+        <input type="text" id="description" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Add a button to navigate back to index.html -->
+    <button onclick="window.location.href='index.html'">Back to Index</button>
+
+    <script>
+        function submitArtwork() {
+            var imageUrl = document.getElementById("image-url").value;
+            var description = document.getElementById("description").value;
+
+            if (imageUrl && description) {
+                var gallery = window.opener.document.getElementById("gallery");
+                
+                // Create a new artwork div
+                var newArtworkDiv = document.createElement("div");
+                newArtworkDiv.className = "artwork";
+                newArtworkDiv.setAttribute("data-description", description);
+
+                var image = document.createElement("img");
+                image.src = imageUrl;
+
+                newArtworkDiv.appendChild(image);
+                gallery.appendChild(newArtworkDiv);
+
+                // Redirect the user back to the index.html page
+                window.opener.location.assign("index.html");
+                window.close();
+                return false; // Prevent form submission
+            } else {
+                alert("Please provide both an image URL and a description.");
+                return false;
+            }
+        }
+
+    </script>
+</body>
+</html>
+
